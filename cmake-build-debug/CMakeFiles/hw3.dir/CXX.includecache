@@ -51,4 +51,10 @@ Dish.h
 /home/ben/CLionProjects/newtry/hw3/Dish.h
 Dish.cpp
 /home/ben/CLionProjects/newtry/hw3/Dish.cpp
+sys/types.h
+/home/ben/CLionProjects/newtry/hw3/sys/types.h
+sys/ipc.h
+/home/ben/CLionProjects/newtry/hw3/sys/ipc.h
+sys/shm.h
+/home/ben/CLionProjects/newtry/hw3/sys/shm.h
 
