@@ -40,6 +40,16 @@ Menu.h
 Dish.h
 /home/ben/CLionProjects/newtry/hw3/Dish.h
 
+/home/ben/CLionProjects/newtry/hw3/Stooper.h
+iostream
+-
+iomanip
+-
+ctime
+-
+chrono
+-
+
 /home/ben/CLionProjects/newtry/hw3/main.cpp
 iostream
 -
@@ -59,4 +69,8 @@ sys/ipc.h
 /home/ben/CLionProjects/newtry/hw3/sys/ipc.h
 sys/shm.h
 /home/ben/CLionProjects/newtry/hw3/sys/shm.h
+Stooper.h
+/home/ben/CLionProjects/newtry/hw3/Stooper.h
+time.h
+-
 

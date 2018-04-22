@@ -7,8 +7,16 @@
 #include "sys/types.h"
 #include "sys/ipc.h"
 #include "sys/shm.h"
+#include "Stooper.h"
+
+#include <time.h>
+
+
+float GetTimePass(std::chrono::system_clock::time_point startTime);
 
 using namespace std;
+
+
 
 int main(void) {
 
@@ -23,6 +31,12 @@ int main(void) {
     int sharedMemID;
     char  *segmem1ptr;
 
+    Stooper stooper;
+
+
+
+
+
 
 
 
@@ -32,6 +46,9 @@ int main(void) {
 //    cout << "Customers count: "<< coustNum<<"\n";
 //    cout<< "Waiter count: 1"<< waiterNum<<"\n";
 
+
+//-------------------------------shared memory creation-------------------
+
     //creation of shared memory
     sharedMemID = shmget(sharedMemKEY, 128 ,IPC_CREAT|IPC_EXCL|0666);
 
@@ -40,6 +57,12 @@ int main(void) {
         cout<< "\nshared memory allocated faild!";
         return 1;
     }
+
+//-------------------------------shared memory creation-END-------------------
+
+
+
+    stooper.start();
 
 
     segmem1ptr = static_cast<char *>(shmat(sharedMemID, 0, 0));
@@ -54,20 +77,23 @@ int main(void) {
 
     if (pid==0){
         //son section
-        segmem1ptr[0]='a';
+
+        sleep(3);
+        cout<<stooper.getTimePass()<<"\n";
+
+
         exit(0);
 
     } else{
         //father section
 
-        sleep(2);
+        sleep(4);
+
+        cout<<stooper.getTimePass();
         cout << segmem1ptr[0];
 
 
     }
-
-
-
 
 
     //Menu h(3);
@@ -76,8 +102,13 @@ int main(void) {
 
     // close the shared memory
     if(shmctl (sharedMemID, IPC_RMID, 0)==-1){
-        cout<<"\n Shaerd mem didnt delete!!";
+        cout<<"\n Shared memory didnt delete!!";
     }
 
     return 0;
 }
+
+
+
+
+

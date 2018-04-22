@@ -84,6 +84,9 @@
 				</MakeCommands>
 			</Target>
 		</Build>
+		<Unit filename="/home/ben/CLionProjects/newtry/hw3/Stooper.h">
+			<Option target="hw3"/>
+		</Unit>
 		<Unit filename="/home/ben/CLionProjects/newtry/hw3/main.cpp">
 			<Option target="hw3"/>
 		</Unit>

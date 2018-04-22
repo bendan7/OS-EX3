@@ -5,5 +5,6 @@ CMakeFiles/hw3.dir/main.cpp.o: ../Dish.cpp
 CMakeFiles/hw3.dir/main.cpp.o: ../Dish.h
 CMakeFiles/hw3.dir/main.cpp.o: ../Menu.cpp
 CMakeFiles/hw3.dir/main.cpp.o: ../Menu.h
+CMakeFiles/hw3.dir/main.cpp.o: ../Stooper.h
 CMakeFiles/hw3.dir/main.cpp.o: ../main.cpp
 
