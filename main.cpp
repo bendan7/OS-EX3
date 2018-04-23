@@ -77,7 +77,7 @@ int main(void) {
     } else{
         //father section
 
-        sleep(4);
+        sleep(10);
         cout<<segmem1ptr[1].amount;
 
 
@@ -90,6 +90,7 @@ int main(void) {
 
     // close the shared memory
     shmdt(segmem1ptr);
+    
     if(shmctl (sharedMemID, IPC_RMID, NULL)==-1){
         cout<<"\n Shared memory didnt delete!!";
     }
