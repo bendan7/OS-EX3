@@ -8,13 +8,15 @@
 #include "sys/ipc.h"
 #include "sys/shm.h"
 #include "Stooper.h"
-
 #include <time.h>
-
-
-float GetTimePass(std::chrono::system_clock::time_point startTime);
-
 using namespace std;
+
+struct Order {
+    int customerId;
+    int itemId;
+    int amount;
+    int done;
+};
 
 
 
@@ -25,18 +27,12 @@ int main(void) {
     int numOfDish =5;
     int coustNum= 2;
     int waiterNum = 1;
-
-    //shared memory
-    key_t sharedMemKEY = ftok(".",'a');
-    int sharedMemID;
-    char  *segmem1ptr;
-
     Stooper stooper;
 
-
-
-
-
+    //shared memory
+    key_t sharedMemKEY = ftok(".",'b');
+    int sharedMemID;
+    Order *segmem1ptr;
 
 
 
@@ -48,25 +44,19 @@ int main(void) {
 
 
 //-------------------------------shared memory creation-------------------
-
     //creation of shared memory
-    sharedMemID = shmget(sharedMemKEY, 128 ,IPC_CREAT|IPC_EXCL|0666);
+    sharedMemID = shmget(sharedMemKEY, sizeof(Order)*30 ,IPC_CREAT|IPC_EXCL|0666);
 
     //if shared memory allocated is faild
     if(sharedMemID==-1){
-        cout<< "\nshared memory allocated faild!";
-        return 1;
+        perror("\nshared memory allocated faild!");
+        exit(1);
     }
-
 //-------------------------------shared memory creation-END-------------------
 
+    segmem1ptr = (Order*)shmat(sharedMemID, 0, 0);
 
-
-    stooper.start();
-
-
-    segmem1ptr = static_cast<char *>(shmat(sharedMemID, 0, 0));
-    segmem1ptr[0]= '!';
+    segmem1ptr[1].amount=1;
 
     int pid =fork();
     if(pid<0){
@@ -78,8 +68,8 @@ int main(void) {
     if (pid==0){
         //son section
 
-        sleep(3);
-        cout<<stooper.getTimePass()<<"\n";
+        sleep(1);
+        segmem1ptr[1].amount=2;
 
 
         exit(0);
@@ -88,9 +78,7 @@ int main(void) {
         //father section
 
         sleep(4);
-
-        cout<<stooper.getTimePass();
-        cout << segmem1ptr[0];
+        cout<<segmem1ptr[1].amount;
 
 
     }
@@ -101,7 +89,8 @@ int main(void) {
 
 
     // close the shared memory
-    if(shmctl (sharedMemID, IPC_RMID, 0)==-1){
+    shmdt(segmem1ptr);
+    if(shmctl (sharedMemID, IPC_RMID, NULL)==-1){
         cout<<"\n Shared memory didnt delete!!";
     }
 
