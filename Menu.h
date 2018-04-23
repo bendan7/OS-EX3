@@ -12,7 +12,10 @@ class Menu {
 
 private:
 
+public:
+    int getNumOfDishes() const;
 
+private:
     Dish **dishesArr;
     int numOfDishes;
     string names[7]= {"Spaghetti", "Pizza", "Salad", "Hamburger", "Pie", "Milkshake", "Tea"};
