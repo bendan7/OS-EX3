@@ -2,8 +2,8 @@
 // Created by ben on 18/04/18.
 //
 
-#ifndef HW333_MENU_H
-#define HW333_MENU_H
+#ifndef HW3_MENU_H
+#define HW3_MENU_H
 
 #include "Dish.h"
 using namespace std;

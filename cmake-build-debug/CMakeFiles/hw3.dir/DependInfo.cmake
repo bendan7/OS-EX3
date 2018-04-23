@@ -4,6 +4,7 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
+  "/home/ben/CLionProjects/newtry/hw3/Customer.cpp" "/home/ben/CLionProjects/newtry/hw3/cmake-build-debug/CMakeFiles/hw3.dir/Customer.cpp.o"
   "/home/ben/CLionProjects/newtry/hw3/main.cpp" "/home/ben/CLionProjects/newtry/hw3/cmake-build-debug/CMakeFiles/hw3.dir/main.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")

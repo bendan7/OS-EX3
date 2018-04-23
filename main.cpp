@@ -8,6 +8,7 @@
 #include "sys/ipc.h"
 #include "sys/shm.h"
 #include "Stooper.h"
+#include "Customer.h"
 #include <time.h>
 using namespace std;
 
@@ -20,14 +21,17 @@ struct Order {
 
 
 
+
 int main(void) {
 
     //init values
-    int simuTime= 15;
+    int simuTime= 10;
     int numOfDish =5;
     int coustNum= 2;
     int waiterNum = 1;
-    Stooper stooper;
+
+    Stooper stooper(simuTime);
+    Menu menu(numOfDish);
 
     //shared memory
     key_t sharedMemKEY = ftok(".",'b');
@@ -52,13 +56,17 @@ int main(void) {
         perror("\nshared memory allocated faild!");
         exit(1);
     }
-//-------------------------------shared memory creation-END-------------------
 
     segmem1ptr = (Order*)shmat(sharedMemID, 0, 0);
+//-------------------------------shared memory creation-END-------------------
+
+
+    stooper.start();
 
     segmem1ptr[1].amount=1;
 
     int pid =fork();
+
     if(pid<0){
         cout <<"\n fork is faild!";
         return 1;
@@ -67,10 +75,9 @@ int main(void) {
 
     if (pid==0){
         //son section
-
-        sleep(1);
-        segmem1ptr[1].amount=2;
-
+        cout<<"pid: "<<pid<<"\n";
+        Customer tomer(1,&stooper,&menu);
+        tomer.start();
 
         exit(0);
 
@@ -78,7 +85,7 @@ int main(void) {
         //father section
 
         sleep(10);
-        cout<<segmem1ptr[1].amount;
+
 
 
     }
@@ -97,8 +104,4 @@ int main(void) {
 
     return 0;
 }
-
-
-
-
 

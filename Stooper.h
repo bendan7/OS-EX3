@@ -14,8 +14,15 @@ class Stooper {
 private:
     std::chrono::system_clock::time_point startTime;
     bool isStart= false;
+    int simuTime;
 
 public:
+    Stooper(int simuTime) {
+        this->simuTime=simuTime;
+    }
+
+    Stooper() {}
+
     void start(){
         isStart=true;
         startTime = std::chrono::high_resolution_clock::now();
@@ -31,6 +38,13 @@ public:
 
     void reset(){
         start();
+    }
+
+    bool stillRun(){
+        if(simuTime>getTimePass())
+            return true;
+        else
+            return false;
     }
 
 

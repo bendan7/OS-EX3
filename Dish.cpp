@@ -15,7 +15,7 @@ using namespace std;
 Dish::Dish(const string &id, const string &name){
     this->id=id;
     this->name=name;
-    this->price=rand()%100 ;
+    this->price=rand()%101 ;
     totalOrder= 0;
 }
 
