@@ -1,9 +1,10 @@
 //
-// Created by ben on 18/04/18.
+// Created by ben on 23/04/18.
 //
 
 #ifndef HW3_MENU_H
 #define HW3_MENU_H
+
 
 #include "Dish.h"
 using namespace std;
@@ -23,5 +24,4 @@ public:
 
 };
 
-
-#endif //HW333_MENU_H
+#endif //HW3_MENU_H

@@ -30,6 +30,8 @@ Menu.h
 time.h
 -
 
+/home/ben/CLionProjects/newtry/hw3/Dish.cpp
+Dish.h
 /home/ben/CLionProjects/newtry/hw3/Dish.h
 iostream
 -
@@ -37,6 +39,26 @@ stdlib.h
 -
 string.h
 -
+cstdlib
+-
+time.h
+-
+ctime
+-
+chrono
+/home/ben/CLionProjects/newtry/hw3/chrono
+
+/home/ben/CLionProjects/newtry/hw3/Dish.h
+iostream
+-
+stdlib.h
+-
+string.h
+-
+
+/home/ben/CLionProjects/newtry/hw3/Menu.cpp
+Menu.h
+/home/ben/CLionProjects/newtry/hw3/Menu.h
 
 /home/ben/CLionProjects/newtry/hw3/Menu.h
 Dish.h

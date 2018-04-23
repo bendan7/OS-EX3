@@ -150,6 +150,60 @@ Customer.cpp.s:
 	$(MAKE) -f CMakeFiles/hw3.dir/build.make CMakeFiles/hw3.dir/Customer.cpp.s
 .PHONY : Customer.cpp.s
 
+Dish.o: Dish.cpp.o
+
+.PHONY : Dish.o
+
+# target to build an object file
+Dish.cpp.o:
+	$(MAKE) -f CMakeFiles/hw3.dir/build.make CMakeFiles/hw3.dir/Dish.cpp.o
+.PHONY : Dish.cpp.o
+
+Dish.i: Dish.cpp.i
+
+.PHONY : Dish.i
+
+# target to preprocess a source file
+Dish.cpp.i:
+	$(MAKE) -f CMakeFiles/hw3.dir/build.make CMakeFiles/hw3.dir/Dish.cpp.i
+.PHONY : Dish.cpp.i
+
+Dish.s: Dish.cpp.s
+
+.PHONY : Dish.s
+
+# target to generate assembly for a file
+Dish.cpp.s:
+	$(MAKE) -f CMakeFiles/hw3.dir/build.make CMakeFiles/hw3.dir/Dish.cpp.s
+.PHONY : Dish.cpp.s
+
+Menu.o: Menu.cpp.o
+
+.PHONY : Menu.o
+
+# target to build an object file
+Menu.cpp.o:
+	$(MAKE) -f CMakeFiles/hw3.dir/build.make CMakeFiles/hw3.dir/Menu.cpp.o
+.PHONY : Menu.cpp.o
+
+Menu.i: Menu.cpp.i
+
+.PHONY : Menu.i
+
+# target to preprocess a source file
+Menu.cpp.i:
+	$(MAKE) -f CMakeFiles/hw3.dir/build.make CMakeFiles/hw3.dir/Menu.cpp.i
+.PHONY : Menu.cpp.i
+
+Menu.s: Menu.cpp.s
+
+.PHONY : Menu.s
+
+# target to generate assembly for a file
+Menu.cpp.s:
+	$(MAKE) -f CMakeFiles/hw3.dir/build.make CMakeFiles/hw3.dir/Menu.cpp.s
+.PHONY : Menu.cpp.s
+
 main.o: main.cpp.o
 
 .PHONY : main.o
@@ -189,6 +243,12 @@ help:
 	@echo "... Customer.o"
 	@echo "... Customer.i"
 	@echo "... Customer.s"
+	@echo "... Dish.o"
+	@echo "... Dish.i"
+	@echo "... Dish.s"
+	@echo "... Menu.o"
+	@echo "... Menu.i"
+	@echo "... Menu.s"
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"

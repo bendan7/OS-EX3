@@ -1,6 +1,8 @@
 file(REMOVE_RECURSE
   "CMakeFiles/hw3.dir/main.cpp.o"
   "CMakeFiles/hw3.dir/Customer.cpp.o"
+  "CMakeFiles/hw3.dir/Menu.cpp.o"
+  "CMakeFiles/hw3.dir/Dish.cpp.o"
   "hw3.pdb"
   "hw3"
 )

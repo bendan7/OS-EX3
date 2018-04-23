@@ -90,6 +90,18 @@
 		<Unit filename="/home/ben/CLionProjects/newtry/hw3/Customer.h">
 			<Option target="hw3"/>
 		</Unit>
+		<Unit filename="/home/ben/CLionProjects/newtry/hw3/Dish.cpp">
+			<Option target="hw3"/>
+		</Unit>
+		<Unit filename="/home/ben/CLionProjects/newtry/hw3/Dish.h">
+			<Option target="hw3"/>
+		</Unit>
+		<Unit filename="/home/ben/CLionProjects/newtry/hw3/Menu.cpp">
+			<Option target="hw3"/>
+		</Unit>
+		<Unit filename="/home/ben/CLionProjects/newtry/hw3/Menu.h">
+			<Option target="hw3"/>
+		</Unit>
 		<Unit filename="/home/ben/CLionProjects/newtry/hw3/Stooper.h">
 			<Option target="hw3"/>
 		</Unit>

@@ -7,6 +7,13 @@ CMakeFiles/hw3.dir/Customer.cpp.o: ../Dish.h
 CMakeFiles/hw3.dir/Customer.cpp.o: ../Menu.h
 CMakeFiles/hw3.dir/Customer.cpp.o: ../Stooper.h
 
+CMakeFiles/hw3.dir/Dish.cpp.o: ../Dish.cpp
+CMakeFiles/hw3.dir/Dish.cpp.o: ../Dish.h
+
+CMakeFiles/hw3.dir/Menu.cpp.o: ../Dish.h
+CMakeFiles/hw3.dir/Menu.cpp.o: ../Menu.cpp
+CMakeFiles/hw3.dir/Menu.cpp.o: ../Menu.h
+
 CMakeFiles/hw3.dir/main.cpp.o: ../Customer.h
 CMakeFiles/hw3.dir/main.cpp.o: ../Dish.h
 CMakeFiles/hw3.dir/main.cpp.o: ../Menu.h

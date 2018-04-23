@@ -1,9 +1,9 @@
 #include <iostream>
 #include <unistd.h>
 #include "Menu.h"
-#include "Menu.cpp"
+
 #include "Dish.h"
-#include "Dish.cpp"
+
 #include "sys/types.h"
 #include "sys/ipc.h"
 #include "sys/shm.h"

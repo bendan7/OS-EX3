@@ -1,9 +1,11 @@
 //
-// Created by ben on 18/04/18.
+// Created by ben on 23/04/18.
 //
 
-#ifndef HW333_DISH_H
-#define HW333_DISH_H
+#ifndef HW3_DISH_H
+#define HW3_DISH_H
+
+
 #include <iostream>
 #include <stdlib.h>
 #include <string.h>
@@ -45,4 +47,5 @@ public:
 };
 
 
-#endif //HW333_DISH_H
+
+#endif //HW3_DISH_H
