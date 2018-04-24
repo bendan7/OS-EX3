@@ -204,6 +204,33 @@ Menu.cpp.s:
 	$(MAKE) -f CMakeFiles/hw3.dir/build.make CMakeFiles/hw3.dir/Menu.cpp.s
 .PHONY : Menu.cpp.s
 
+Waiter.o: Waiter.cpp.o
+
+.PHONY : Waiter.o
+
+# target to build an object file
+Waiter.cpp.o:
+	$(MAKE) -f CMakeFiles/hw3.dir/build.make CMakeFiles/hw3.dir/Waiter.cpp.o
+.PHONY : Waiter.cpp.o
+
+Waiter.i: Waiter.cpp.i
+
+.PHONY : Waiter.i
+
+# target to preprocess a source file
+Waiter.cpp.i:
+	$(MAKE) -f CMakeFiles/hw3.dir/build.make CMakeFiles/hw3.dir/Waiter.cpp.i
+.PHONY : Waiter.cpp.i
+
+Waiter.s: Waiter.cpp.s
+
+.PHONY : Waiter.s
+
+# target to generate assembly for a file
+Waiter.cpp.s:
+	$(MAKE) -f CMakeFiles/hw3.dir/build.make CMakeFiles/hw3.dir/Waiter.cpp.s
+.PHONY : Waiter.cpp.s
+
 main.o: main.cpp.o
 
 .PHONY : main.o
@@ -249,6 +276,9 @@ help:
 	@echo "... Menu.o"
 	@echo "... Menu.i"
 	@echo "... Menu.s"
+	@echo "... Waiter.o"
+	@echo "... Waiter.i"
+	@echo "... Waiter.s"
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"

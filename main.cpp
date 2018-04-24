@@ -3,13 +3,20 @@
 #include "Menu.h"
 
 #include "Dish.h"
-
+#include <limits.h>
 #include "sys/types.h"
 #include "sys/ipc.h"
 #include "sys/shm.h"
 #include "Stooper.h"
 #include "Customer.h"
 #include <time.h>
+#include <sys/types.h>
+#include <sys/ipc.h>
+#include <sys/sem.h>
+#include <errno.h>
+#include "Waiter.h"
+#define SEMPERM 0600 /* permission for semaphore */
+
 using namespace std;
 
 /*struct Order {
@@ -19,19 +26,28 @@ using namespace std;
     int done;
 };*/
 
+
+
 int main(void) {
 
     //init values
     int simuTime= 10;
     int numOfDish =5;
-    int coustNum= 10;
-    int waiterNum = 1;
+    int coustNum= 5;
+    int waiterNum = 4;
 
     Stooper stooper(simuTime);
     Menu menu(numOfDish);
 
-    //shared memory
+
+
+    //shared memory key
     key_t sharedMemKEY = ftok(".",'b');
+    if(sharedMemKEY==-1){ perror("IPC error: ftok(sharedMemKEY)");exit(1);}
+
+    //semaphore key
+    key_t semkey = ftok(".",'a');
+
     int sharedMemID;
     Order *segmem1ptr;
 
@@ -54,47 +70,87 @@ int main(void) {
         exit(1);
     }
 
+    //attach
     segmem1ptr = (Order*)shmat(sharedMemID, 0, 0);
+
+    //init order status
+    for(int i=0; i<coustNum; i++)
+        segmem1ptr[i].done=-1;
 //-------------------------------shared memory creation-END-------------------
 
 
-    stooper.start();
 
-    segmem1ptr[0].amount=868;
+    stooper.start();   //start the stopwatch
+    cout<<fixed<<setprecision(3)<<stooper.getTimePass()<<" Main process start creating sub-process\n";
 
-    int pid =fork();
 
-    if(pid<0){
-        cout <<"\n fork is faild!";
-        return 1;
+
+
+    //---------------Customer creation---------------------
+
+    for(int i=0;i<coustNum;i++){
+
+        int pid =fork();
+
+        if(pid<0){ cout <<"\n fork is faild!";exit (1); }               //failed section
+
+        if (pid==0){                                                    //son section
+            Customer customer(i,&stooper,&menu,segmem1ptr,semkey);
+
+            customer.start();
+
+            exit(0);
+
+        } else{                                                         //father section
+            //main process section come here
+        }
     }
-
-
-    if (pid==0){
-        //son section
-
-        Customer tomer(1,&stooper,&menu,segmem1ptr);
-        tomer.start();
-
-        exit(0);
-
-    } else{
-        //father section
-
-        sleep(10);
+    //---------------Customer creation-END---------------------
 
 
 
+
+    //---------------Waiters creation---------------------
+    for(int i=0;i<waiterNum;i++){
+        int pid =fork();
+
+        if(pid<0){ cout <<"\n fork is faild!";exit (1); }               //failed section
+
+        if (pid==0){                                                    //son section
+            Waiter waiter(i,&stooper,&menu,segmem1ptr,semkey,coustNum);
+            waiter.start();
+            exit(0);
+
+        } else{                                                         //father section
+            //main process section come here
+        }
     }
+    //---------------Waiters creation-END---------------------
 
 
 
-    //---------- close the shared memory-----------
+    //HERE NEED TO COME THE PART THAT THE MAIN PROCESS WAIT FOR EVREYONE
+    sleep(15);
+
+
+
+    //---------- close the shared memory--------------
     shmdt(segmem1ptr);
     if(shmctl (sharedMemID, IPC_RMID, NULL)==-1){
         cout<<"\n Shared memory didnt delete!!";
     }
     //---------- close the shared memory-END-----------
+
+
+    //---------- close the semaphore--------------
+    semctl(semkey, 0, IPC_RMID, NULL);
+    //---------- close the semaphore-END-----------
+
+
+
     return 0;
 }
+
+
+
 

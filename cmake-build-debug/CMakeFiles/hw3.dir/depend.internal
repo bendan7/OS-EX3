@@ -14,9 +14,17 @@ CMakeFiles/hw3.dir/Menu.cpp.o
  /home/ben/CLionProjects/newtry/hw3/Dish.h
  /home/ben/CLionProjects/newtry/hw3/Menu.cpp
  /home/ben/CLionProjects/newtry/hw3/Menu.h
+CMakeFiles/hw3.dir/Waiter.cpp.o
+ /home/ben/CLionProjects/newtry/hw3/Customer.h
+ /home/ben/CLionProjects/newtry/hw3/Dish.h
+ /home/ben/CLionProjects/newtry/hw3/Menu.h
+ /home/ben/CLionProjects/newtry/hw3/Stooper.h
+ /home/ben/CLionProjects/newtry/hw3/Waiter.cpp
+ /home/ben/CLionProjects/newtry/hw3/Waiter.h
 CMakeFiles/hw3.dir/main.cpp.o
  /home/ben/CLionProjects/newtry/hw3/Customer.h
  /home/ben/CLionProjects/newtry/hw3/Dish.h
  /home/ben/CLionProjects/newtry/hw3/Menu.h
  /home/ben/CLionProjects/newtry/hw3/Stooper.h
+ /home/ben/CLionProjects/newtry/hw3/Waiter.h
  /home/ben/CLionProjects/newtry/hw3/main.cpp

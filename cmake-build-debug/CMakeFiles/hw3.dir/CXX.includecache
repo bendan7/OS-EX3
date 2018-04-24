@@ -29,6 +29,10 @@ Menu.h
 /home/ben/CLionProjects/newtry/hw3/Menu.h
 time.h
 -
+sys/ipc.h
+-
+sys/sem.h
+-
 
 /home/ben/CLionProjects/newtry/hw3/Dish.cpp
 Dish.h
@@ -74,6 +78,34 @@ ctime
 chrono
 -
 
+/home/ben/CLionProjects/newtry/hw3/Waiter.cpp
+Waiter.h
+/home/ben/CLionProjects/newtry/hw3/Waiter.h
+
+/home/ben/CLionProjects/newtry/hw3/Waiter.h
+iostream
+-
+unistd.h
+-
+sys/types.h
+/home/ben/CLionProjects/newtry/hw3/sys/types.h
+sys/ipc.h
+/home/ben/CLionProjects/newtry/hw3/sys/ipc.h
+sys/shm.h
+/home/ben/CLionProjects/newtry/hw3/sys/shm.h
+Stooper.h
+/home/ben/CLionProjects/newtry/hw3/Stooper.h
+Menu.h
+/home/ben/CLionProjects/newtry/hw3/Menu.h
+time.h
+-
+sys/ipc.h
+-
+sys/sem.h
+-
+Customer.h
+/home/ben/CLionProjects/newtry/hw3/Customer.h
+
 /home/ben/CLionProjects/newtry/hw3/main.cpp
 iostream
 -
@@ -83,6 +115,8 @@ Menu.h
 /home/ben/CLionProjects/newtry/hw3/Menu.h
 Dish.h
 /home/ben/CLionProjects/newtry/hw3/Dish.h
+limits.h
+-
 sys/types.h
 /home/ben/CLionProjects/newtry/hw3/sys/types.h
 sys/ipc.h
@@ -95,4 +129,14 @@ Customer.h
 /home/ben/CLionProjects/newtry/hw3/Customer.h
 time.h
 -
+sys/types.h
+-
+sys/ipc.h
+-
+sys/sem.h
+-
+errno.h
+-
+Waiter.h
+/home/ben/CLionProjects/newtry/hw3/Waiter.h
 

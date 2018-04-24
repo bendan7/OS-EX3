@@ -23,6 +23,7 @@ private:
 public:
     Menu(int numOfDishes);
     void print();
+    string getDishName(int index){ return names[index];}
 
 
 };
