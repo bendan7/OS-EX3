@@ -4,12 +4,14 @@
 
 #include "Waiter.h"
 
-Waiter::Waiter(int id, Stooper *s, Menu *menu,  Order *segmem1ptr,key_t semkey, int numOfCust) {
+Waiter::Waiter(int id, Stooper *s, Menu *menu,  Order *segmem1ptr,key_t semkey, int numOfCust, int *totalOrdersBoard, key_t semkeyTotOrders) {
     this->wid=id;
     this->stooper = s;
     this->menu= menu;
     this->segmem1ptr= segmem1ptr;
+    this->totalOrdersBoard=totalOrdersBoard;
     this->semkey=semkey;
+    this->semkeyTotOrders=semkeyTotOrders;
     this->numOfCust=numOfCust;
     cout<<fixed<<setprecision(3)<<stooper->getTimePass()<<" Waiter "<<wid<<": created PID "<<getpid()<< " PPID "<< getppid()<<"\n";
 }
@@ -39,12 +41,18 @@ int Waiter::start() {
 
 void Waiter::serve(int orderNum) {
 
-    int semid,custoID,amount,itemID;
+    int semid,semidTotOrde,custoID,amount,itemID;
 
     if( ( semid = initsem(this->semkey) ) < 0 ) {
         perror("init semaphore failed");
         exit(1);
     }
+    if( ( semidTotOrde = initsem(this->semkeyTotOrders) ) < 0 ) {
+        perror("init semaphore failed");
+        exit(1);
+    }
+
+
 
     //---------critical section---------
     p(semid);
@@ -53,11 +61,18 @@ void Waiter::serve(int orderNum) {
         custoID=segmem1ptr[orderNum].customerId;
         amount=segmem1ptr[orderNum].amount;
         itemID=segmem1ptr[orderNum].itemId;
+        v(semid);
 
-        //here come section that add the amount to the total.
-        //
-    }
-    v(semid);
+        //updater the total board
+        p(semidTotOrde);
+        totalOrdersBoard[itemID]+=amount; //update the total order board
+        v(semidTotOrde);
+    } else
+        v(semid);
+
+
+
+
     cout<< fixed<<setprecision(3)<<stooper->getTimePass()<<" Waiter ID "<<wid<<": performs the order of customer ID "<<custoID<<" ("<<amount<<" "<<menu->getDishName(itemID) <<") \n";
 }
 

@@ -41,11 +41,13 @@ private:
     int numOfCust;
     Stooper *stooper;
     Menu *menu;
-    Order *segmem1ptr;
+    Order *segmem1ptr;      //shared memory
+    int *totalOrdersBoard;  //shared mem
     key_t semkey;
+    key_t semkeyTotOrders;
 
 public:
-    Waiter(int id, Stooper *s, Menu *menu,  Order *segmem1ptr,key_t semkey, int numOfCust);
+    Waiter(int id, Stooper *s, Menu *menu,  Order *segmem1ptr,key_t semkey, int numOfCust, int *totalOrdersBoard ,key_t semkeyTotOrders);
 
     int start();
     void serve(int orderNum);

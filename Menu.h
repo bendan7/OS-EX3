@@ -24,6 +24,8 @@ public:
     Menu(int numOfDishes);
     void print();
     string getDishName(int index){ return names[index];}
+    void updateDishAmount(int index, int amount);
+    int getDishPrice(int index){return dishesArr[index]->getPrice(); }
 
 
 };

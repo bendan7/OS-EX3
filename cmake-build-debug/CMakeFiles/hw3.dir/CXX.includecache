@@ -113,6 +113,10 @@ unistd.h
 -
 Menu.h
 /home/ben/CLionProjects/newtry/hw3/Menu.h
+stdio.h
+-
+stdlib.h
+-
 Dish.h
 /home/ben/CLionProjects/newtry/hw3/Dish.h
 limits.h
@@ -130,6 +134,8 @@ Customer.h
 time.h
 -
 sys/types.h
+-
+sys/wait.h
 -
 sys/ipc.h
 -

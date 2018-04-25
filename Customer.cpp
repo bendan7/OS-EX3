@@ -17,7 +17,7 @@ Customer::Customer(int id, Stooper *s, Menu *menu,  Order *segmem1ptr,key_t semk
 
 int Customer::start() {
 
-    srand(cid);                 //init rand seed by using customer id
+    srand(getpid());                 //init rand seed by using getpid
 
     while(stooper->stillRun()){     //run as long the simulation time not over
 

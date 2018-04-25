@@ -24,10 +24,16 @@ void Menu::print(){
         dishesArr[i]->printDish();
         cout <<"\n";
     }
+    cout << "===============================\n";
 
 
 }
 
 int Menu::getNumOfDishes() const {
     return numOfDishes;
+}
+
+void Menu::updateDishAmount(int index, int amount){
+    dishesArr[index]->setTotalOrder(amount);
+
 }
