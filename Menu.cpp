@@ -19,7 +19,7 @@ Menu::Menu(int numOfDishes){
 
 void Menu::print(){
     cout << "===========Menu list===========\n";
-    cout << "cid   Name       Price   Orders\n";
+    cout << "Id   Name       Price   Orders\n";
     for(int i =0 ; i<this->numOfDishes ; i++){
         dishesArr[i]->printDish();
         cout <<"\n";

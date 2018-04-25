@@ -21,22 +21,19 @@
 
 using namespace std;
 
-/*struct Order {
-    int customerId;
-    int itemId;
-    int amount;
-    int done;
-};*/
 
+int main(int argc, char* args[]) {
 
-
-int main(void) {
+    if(argc!=5 ){
+        cout<<"Input argumenets ar not valid!\n";
+        return 1;
+    }
 
     //init values
-    int simuTime= 10;
-    int numOfDish =5;
-    int coustNum= 5;
-    int waiterNum = 4;
+    int simuTime= atoi(args[1]);
+    int numOfDish =atoi(args[2]);;
+    int coustNum= atoi(args[3]);;
+    int waiterNum = atoi(args[4]);;
 
     Stooper stooper(simuTime);
     Menu menu(numOfDish);
@@ -92,7 +89,7 @@ int main(void) {
     cout<< "simulation time: "<< simuTime<<"\n";
     cout<< "Menu items count: "<< numOfDish << "\n";
     cout << "Customers count: "<< coustNum<<"\n";
-    cout<< "Waiter count: 1"<< waiterNum<<"\n";
+    cout<< "Waiter count: "<< waiterNum<<"\n";
     cout << "===============================\n";
     cout << "0.000 Main process ID "<<getpid()<< " start\n";
     menu.print();
@@ -164,7 +161,7 @@ int main(void) {
     //---------- close the semaphores-END-----------
 
     cout<<fixed<<setprecision(3)<<stooper.getTimePass()<<" Main ID "<<getpid()<<" end work\n";
-    cout<<fixed<<setprecision(3)<<stooper.getTimePass()<<" End of simulation";
+    cout<<fixed<<setprecision(3)<<stooper.getTimePass()<<" End of simulation\n";
 
 
 
